@@ -15,12 +15,12 @@
 /* ------------------------------------------------------------------ */
 /* a. General Styles
 /* ------------------------------------------------------------------ */
-html,
-body {
+html .landing-page,
+body .landing-page {
     width: 100%;
     height: 100%;
 }
-body {
+body .landing-page {
     background: linear-gradient(-45deg, #027368, #01403a, #2c3936, #475954);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
@@ -207,6 +207,7 @@ header .itemCustom {
     padding-top: 10px;
     padding-bottom: 72px;
     overflow: hidden;
+    opacity: 0.9;
 }
 
 #resume a,
@@ -307,20 +308,22 @@ header .itemCustom {
 footer {
     padding-top: 48px;
     color: #303030;
-    background-color: #0f0f0f;
+    background-color: #d9d5d2;
     font-size: 14px;
     text-align: center;
     position: relative;
     height: 100%;
 }
-
+.footer-landing {
+    opacity: 0.8;
+}
 footer a,
 footer a:visited {
     color: #525252;
 }
 footer a:hover,
 footer a:focus {
-    color: #fff;
+    color: #01403a;
 }
 
 /* copyright */

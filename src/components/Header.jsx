@@ -19,11 +19,17 @@ export default function Header() {
 
                 <Link to="login">
                     <Button
-                        variant="outlined"
+                        variant="contained"
+                        color="primary"
                         size="large"
-                        color="success"
-                        endIcon={<LoginIcon />}
-                        style={{ marginTop: "40px", marginRight: "70px" }}
+                        endIcon={<LoginIcon sx={{ color: "white" }} />}
+                        style={{
+                            marginTop: "40px",
+                            marginRight: "70px",
+                            borderColor: "#027368",
+                            color: "white",
+                            backgroundColor: "#027368",
+                        }}
                     >
                         Sing in
                     </Button>
@@ -32,9 +38,14 @@ export default function Header() {
                     <Button
                         variant="outlined"
                         size="large"
-                        color="secondary"
-                        endIcon={<AppRegistrationIcon />}
-                        style={{ marginTop: "40px" }}
+                        endIcon={
+                            <AppRegistrationIcon sx={{ color: "white" }} />
+                        }
+                        style={{
+                            marginTop: "40px",
+                            borderColor: "#027368",
+                            color: "white",
+                        }}
                     >
                         Register
                     </Button>

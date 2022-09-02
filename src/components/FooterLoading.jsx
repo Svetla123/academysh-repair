@@ -14,10 +14,14 @@ export default function Footer(props) {
     }
 
     return (
-        <footer className="footer-div">
+        <footer className="footer-div footer-landing">
             <div className="rowDefault">
                 <div className="twelve columns">
                     <ul className="social-links">{socialElements}</ul>
+                    <ul className="copyright">
+                        {" "}
+                        <p>Academysh 1.0.</p>
+                    </ul>
 
                     <ul className="copyright">
                         <li>&copy; Copyright 2022 Luka Svetlečić</li>

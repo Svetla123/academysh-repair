@@ -25,21 +25,47 @@ export default function LoginForm() {
     const theme = createTheme();
     return (
         <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
+            <Container
+                component="main"
+                maxWidth="xs"
+                style={{
+                    backgroundColor: "#D9D5D2",
+                    marginTop: "150px",
+                    marginBotton: "30px",
+                    borderRadius: 10,
+                }}
+            >
                 <CssBaseline />
                 <Box
                     sx={{
-                        marginTop: 8,
+                        marginTop: 4,
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
                     }}
                 >
-                    <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-                        <LockOutlinedIcon />
+                    <Avatar
+                        sx={{
+                            m: 1,
+                            bgcolor: "#01403A",
+                            height: "60px",
+                            width: "60px",
+                        }}
+                    >
+                        <LockOutlinedIcon
+                            sx={{
+                                height: "40px",
+                                width: "40px",
+                                color: "#D9D5D2",
+                            }}
+                        />
                     </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Sign in
+                    <Typography
+                        component="h1"
+                        variant="h5"
+                        sx={{ fontSize: "18px" }}
+                    >
+                        Login with existing account
                     </Typography>
                     <Box
                         component="form"
@@ -56,9 +82,16 @@ export default function LoginForm() {
                             name="email"
                             autoComplete="email"
                             autoFocus
+                            color="success"
+                            sx={{
+                                backgroundColor: "#D9D5D2",
+                                marginTop: "30px",
+                            }}
                         />
+
                         <TextField
                             margin="normal"
+                            color="success"
                             required
                             fullWidth
                             name="password"
@@ -77,19 +110,34 @@ export default function LoginForm() {
                             type="submit"
                             fullWidth
                             variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
+                            color="success"
+                            sx={{
+                                mt: 3,
+                                mb: 2,
+                                backgroundColor: "#027368",
+                                borderColor: "#027368",
+                                color: "white",
+                            }}
                         >
-                            Sign In
+                            Login
                         </Button>
-                        <Grid container>
+                        <Grid container sx={{ marginBottom: "20px" }}>
                             <Grid item xs>
-                                <Link href="#" variant="body2">
+                                <Link
+                                    href="#"
+                                    variant="body2"
+                                    sx={{ color: "#01403A" }}
+                                >
                                     Forgot password?
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="#" variant="body2">
-                                    {"Don't have an account? Sign Up"}
+                                <Link
+                                    href="/register"
+                                    variant="body2"
+                                    sx={{ color: "#01403A" }}
+                                >
+                                    {"Don't have an account? Register!"}
                                 </Link>
                             </Grid>
                         </Grid>

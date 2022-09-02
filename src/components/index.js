@@ -9,3 +9,4 @@ export { default as FooterLoading } from "./FooterLoading";
 export { default as LoginForm } from "./LoginForm";
 export { default as NavigationBar } from "./NavigationBar";
 export { default as FooterMain } from "./FooterMain";
+export { default as RegisterForm } from "./RegisterForm";

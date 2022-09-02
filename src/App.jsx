@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import LandingPage from "./components/pages/LandingPage";
 import LoginPage from "./components/pages/LoginPage";
+import RegisterPage from "./components/pages/RegisterPage";
 
 function App() {
     return (
@@ -11,7 +12,7 @@ function App() {
                 {/* {getRoutes(routes)} */}
                 <Route exact path="/" element={<LandingPage />} />
                 <Route path="/login" element={<LoginPage />} />
-                {/* <Route path="/register" element={<RegisterPage />} /> */}
+                <Route path="/register" element={<RegisterPage />} />
             </Routes>
         </div>
     );
