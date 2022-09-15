@@ -1,9 +1,9 @@
 import React from "react";
 import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
 import { display } from "@mui/system";
-import meetingPicture from "../image/meetingPicture.jpg";
-import testPicture from "../image/testPicture.jpg";
-import progresPicture from "../image/progressPicture.jpg";
+import meetingPicture from "./utils/image/meetingPicture.jpg";
+import testPicture from "./utils/image/testPicture.jpg";
+import progresPicture from "./utils/image/progressPicture.jpg";
 export default function About() {
     return (
         <section id="resume">

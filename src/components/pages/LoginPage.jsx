@@ -1,12 +1,12 @@
 import React from "react";
-import { NavigationBar, FooterMain, LoginForm } from "..";
-import socialData from "../../data/socialData";
+import { NavigationBar, Footer, LoginForm } from "..";
+import socialData from "../utils/data/socialData";
 export default function LoginPage() {
     return (
         <div className="login--page">
-            <NavigationBar />
+            <NavigationBar showUserDetails={false} />
             <LoginForm />
-            <FooterMain social={socialData} />
+            <Footer social={socialData} landingPage={false} />
         </div>
     );
 }

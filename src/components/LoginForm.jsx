@@ -14,13 +14,23 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 export default function LoginForm() {
+    const [loginFormData, setLoginFormData] = React.useState({
+        username: "",
+        password: "",
+    });
+
+    function handleChange(event) {
+        setLoginFormData((prev) => {
+            return {
+                ...loginFormData,
+                [event.target.name]: event.target.value,
+            };
+        });
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get("email"),
-            password: data.get("password"),
-        });
     };
     const theme = createTheme();
     return (
@@ -73,22 +83,26 @@ export default function LoginForm() {
                         noValidate
                         sx={{ mt: 1 }}
                     >
+                        {/* USERNAME */}
                         <TextField
                             margin="normal"
                             required
                             fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
+                            id="username"
+                            label="Username"
+                            name="username"
+                            autoComplete="username"
                             autoFocus
                             color="success"
+                            onChange={handleChange}
                             sx={{
                                 backgroundColor: "#D9D5D2",
                                 marginTop: "30px",
+                                text: "20px",
                             }}
                         />
 
+                        {/* PASSWORD */}
                         <TextField
                             margin="normal"
                             color="success"
@@ -99,6 +113,7 @@ export default function LoginForm() {
                             type="password"
                             id="password"
                             autoComplete="current-password"
+                            onChange={handleChange}
                         />
                         <FormControlLabel
                             control={

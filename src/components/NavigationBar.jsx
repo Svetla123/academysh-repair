@@ -2,8 +2,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import logoWhite from "../image/LogoWhite.png";
-import logoDark from "../image/LogoBlack.png";
+import logoWhite from "./utils/image/LogoWhite.png";
+import logoDark from "./utils/image/LogoBlack.png";
 import Button from "@mui/material/Button";
 import Form from "react-bootstrap/Form";
 import IconButton from "@mui/material/IconButton";
@@ -12,9 +12,13 @@ import { DarkModeSwitch } from "react-toggle-dark-mode";
 import React from "react";
 import "../custom.scss";
 import { Link } from "react-router-dom";
+import profileImage from "./utils/image/profileImage.jpg";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
-function CollapsibleExample() {
+export default function NavigationBar(props) {
+    console.log(props);
     const [isDarkMode, setDarkMode] = React.useState(false);
     const toggleDarkMode = () => {
         setDarkMode((prev) => !prev);
@@ -22,13 +26,14 @@ function CollapsibleExample() {
     return (
         <Navbar
             expand="lg"
-            variant="white"
+            variant="dark"
             style={{
                 height: "50px",
-                marginLeft: "10px",
-                marginRight: "10px",
-                borderRadius: 7,
+                // marginLeft: "10px",
+                // marginRight: "10px",
+                // borderRadius: 7,
                 opacity: 1,
+                backgroundColor: props.showUserDetails && "#01403A",
             }}
         >
             <Container>
@@ -42,17 +47,24 @@ function CollapsibleExample() {
                         className="d-inline-block align-top"
                     />{" "}
                 </Navbar.Brand>
-                {/* <Navbar.Text>
+
+                {props.showUserDetails && (
+                    <Navbar.Text
+                        style={{ fontSize: "15px", marginLeft: "15px" }}
+                    >
                         Welcome back, <a href="#login">Svetla123</a>
-                    </Navbar.Text> */}
+                    </Navbar.Text>
+                )}
+
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Navbar.Collapse className="justify-content-end">
-                        {/* <Form
+                        {props.showUserDetails && (
+                            <Form
                                 className="d-flex"
                                 style={{
                                     display: "flex",
-                                    marginTop: "28px",
+                                    marginTop: "7px",
                                     marginRight: "20px",
                                 }}
                             >
@@ -70,8 +82,58 @@ function CollapsibleExample() {
                                     className="me-2"
                                     style={{ width: "250px", height: "25px" }}
                                 />
-                            </Form> */}
+                            </Form>
+                        )}
 
+                        {/* {props.showUserDetails && (
+                            <Link to="/profile">
+                                <ImageList>
+                                    <ImageListItem
+                                        sx={{
+                                            width: 30,
+                                            height: 30,
+                                            marginTop: "25px",
+                                            borderRadius: "50%",
+                                            marginLeft: "20px",
+                                        }}
+                                    >
+                                        <img
+                                            src={profileImage}
+                                            alt="Profile Pic"
+                                            className="profile--image--navbar"
+                                        />
+                                    </ImageListItem>
+                                </ImageList>
+                            </Link>
+                        )} */}
+
+                        <DarkModeSwitch
+                            checked={isDarkMode}
+                            onChange={toggleDarkMode}
+                            size={23}
+                            style={{ marginRight: "10px" }}
+                        />
+                    </Navbar.Collapse>
+                </Navbar.Collapse>
+
+                {props.showUserDetails ? (
+                    <Link to="/login">
+                        <Button
+                            variant="outlined"
+                            size="small"
+                            color="success"
+                            className="me-2"
+                            sx={{
+                                borderColor: "#027368",
+                                color: "white",
+                                marginLeft: "20px",
+                            }}
+                        >
+                            Logout
+                        </Button>
+                    </Link>
+                ) : (
+                    <div>
                         <Link to="/register">
                             <Button
                                 variant="outlined"
@@ -102,17 +164,9 @@ function CollapsibleExample() {
                                 LogIn
                             </Button>
                         </Link>
-                        <DarkModeSwitch
-                            checked={isDarkMode}
-                            onChange={toggleDarkMode}
-                            size={23}
-                            style={{ marginLeft: "20px" }}
-                        />
-                    </Navbar.Collapse>
-                </Navbar.Collapse>
+                    </div>
+                )}
             </Container>
         </Navbar>
     );
 }
-
-export default CollapsibleExample;

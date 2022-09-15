@@ -14,7 +14,7 @@ export default function Footer(props) {
     }
 
     return (
-        <footer className="footer-div footer-landing">
+        <footer className="footer-div-main footer-landing">
             <div className="rowDefault">
                 <div className="twelve columns">
                     <ul className="social-links">{socialElements}</ul>
@@ -24,7 +24,10 @@ export default function Footer(props) {
                     </ul>
 
                     <ul className="copyright">
-                        <li>&copy; Copyright 2022 Luka Svetlečić</li>
+                        <li>
+                            &copy; Copyright 2022 Luka Svetlečić, all rights
+                            reserved.
+                        </li>
                         <li>
                             Created by{" "}
                             <a title="Styleshout" href="https://reactjs.org/">
@@ -33,15 +36,18 @@ export default function Footer(props) {
                         </li>
                     </ul>
                 </div>
-                <div id="go-top">
-                    <a
-                        className="smoothscroll"
-                        title="Back to Top"
-                        href="#home"
-                    >
-                        <i className="icon-up-open"></i>
-                    </a>
-                </div>
+
+                {props.landingPage && (
+                    <div id="go-top">
+                        <a
+                            className="smoothscroll"
+                            title="Back to Top"
+                            href="#home"
+                        >
+                            <i className="icon-up-open"></i>
+                        </a>
+                    </div>
+                )}
             </div>
         </footer>
     );
